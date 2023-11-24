@@ -1,0 +1,42 @@
+<!-- marathon/templates/runner_dashboard.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Runner Dashboard - Oman Marathon Day{% endblock %}
+
+{% block content %}
+    <h2>Welcome to Your Runner Dashboard</h2>
+
+    <div>
+        <h3>Your Information</h3>
+        <p><strong>Name:</strong> {{ runner.name }}</p>
+        <p><strong>Email:</strong> {{ runner.email }}</p>
+        <p><strong>Biography:</strong> {{ runner.biography }}</p>
+        <p><strong>Healthy Condition:</strong> {{ runner.healthy_condition }}</p>
+        <p><strong>Nationality:</strong> {{ runner.nationality }}</p>
+        <!-- Add other fields as needed -->
+
+        <a href="{% url 'edit_runner_info' runner.id %}">Edit Your Information</a>
+        <a href="{% url 'delete_runner_info' runner.id %}">Delete Your Account</a>
+    </div>
+
+    <div>
+        <h3>Choose Your Run</h3>
+        <p><strong>Selected Run:</strong> {{ runner.selected_run }}</p>
+        <!-- Add other fields related to the chosen run -->
+
+        <a href="{% url 'edit_run_info' runner.id %}">Edit Your Run Choice</a>
+    </div>
+
+    <div>
+        <h3>Search</h3>
+        <form method="post" action="{% url 'search_runner' %}">
+            {% csrf_token %}
+            <label for="search_query">Search by Name:</label>
+            <input type="text" id="search_query" name="search_query" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

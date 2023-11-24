@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Oman Marathon Day{% endblock %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <!-- Add your login form fields here (e.g., username, password) -->
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? Contact us for registration.</p>
+{% endblock %}
+
+<!-- marathon/templates/login.html -->
+
+

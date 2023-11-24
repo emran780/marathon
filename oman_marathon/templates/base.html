@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Oman Marathon Day{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Add additional CSS or external CSS links as needed -->
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Oman Marathon Day</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'welcome' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'user_actions' %}">User Actions</a></li>
+            <li><a href="{% url 'past_events' %}">Past Events</a></li>
+        </ul>
+    </nav>
+
+    <!-- ... (previous code) ... -->
+
+
+
+    <section>
+        {% block content %}
+        <!-- Content of the specific page goes here -->
+        {% endblock %}
+    </section>
+
+    
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.facebook.com/your-facebook-profile" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://twitter.com/your-twitter-profile" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.instagram.com/muscatmarathon/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <!-- Add more social media links as needed -->
+        </div>
+        <p>&copy; Majid group LLC. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Add additional JavaScript or external script links as needed -->
+</body>
+</html>

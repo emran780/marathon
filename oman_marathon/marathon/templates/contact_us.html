@@ -1,0 +1,23 @@
+<!-- marathon/templates/contact_us.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Oman Marathon Day{% endblock %}
+
+{% block content %}
+    <h2>Contact Us</h2>
+
+    <p>If you're a runner and want to participate, please <a href="{% url 'contact_us' %}">contact us</a> to register and receive your login credentials.</p>
+
+    <form method="post" action="{% url 'contact_us' %}">
+        {% csrf_token %}
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
